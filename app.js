@@ -22,11 +22,11 @@ app.get('/trees/:id',(req,res)=>{
 app.post('/trees',(req,res)=>{
     const {name, category, price, isEvergreen} = req.body
     if (!name || !category || !price || isEvergreen == null) {
-        return res.status(400).json({message:"User not found"})
+        return res.status(400).json({message:"Bad input"})
     }
-    const newfa = {name, category, price, isEvergreen}
-    trees.pusk(newfa)
-    res.status(201).json(newfa)
+    const newtress = {name, category, price, isEvergreen}
+    trees.pusk(newtress)
+    res.status(201).json(newtrees)
 })
 app.put('/trees/:id',(req,res)=>{
     const id = req.params.id
@@ -35,7 +35,7 @@ app.put('/trees/:id',(req,res)=>{
     }
     const {name, category, price, isEvergreen} = req.body
     if (!name || !category || !price || isEvergreen == null) {
-        return res.status(400).json({message:"User not found"})
+        return res.status(400).json({message:"Bad input"})
     }
     trees[id] = {name, category, price, isEvergreen}
     res.status(200).json(trees[id])
